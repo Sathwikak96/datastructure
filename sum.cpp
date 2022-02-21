@@ -1,12 +1,12 @@
-#include<iostream.h>>
+#include<iostream.h>
 #include<conio.h>
-voidmain()
+using namespace std;
+int main()
 {
 	int a,b,sum;
-	clrscr();
 	cout<<"enter a two integer \n";
 	cin>>a>>b;
 	sum=a+b;
-	cout<<"sum is:"+sum \n;
+	cout<<"sum is:"<<sum;
 	getch();
 }
