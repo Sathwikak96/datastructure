@@ -33,7 +33,6 @@ class double_llist
         cout<<endl<<"----------------------------"<<endl;        
         cout<<"1.Create Node"<<endl;
         cout<<"2.Add at begining"<<endl;
-        cout<<"3.Add after position"<<endl;
         cout<<"4.Delete"<<endl;
         cout<<"5.Display"<<endl;
         cout<<"6.Quit"<<endl;
@@ -53,21 +52,8 @@ class double_llist
             dl.add_begin(element);
             cout<<endl;
             break;
-        case 3:
-            cout<<"Enter the element: ";
-            cin>>element;
-            cout<<"Insert Element after postion: ";
-            cin>>position;
-            if(position<=0)
-            {
-            cout<<"Invalid position";
-            break;
-}
-            dl.add_after(element, position);
-            cout<<endl;
-            break;
         case 4:
-            if (start == NULL)
+          if (start == NULL)
             {                      
                 cout<<"List empty,nothing to delete"<<endl;  
                 break;
@@ -125,45 +111,7 @@ class double_llist
     start = temp;
     cout<<"Element Inserted"<<endl;
 }
-void double_llist::add_after(int value, int pos)
-{
-    if (start == NULL)
-    {
-        cout<<"First Create the list."<<endl;
-        return;
-    }
-    struct node *tmp, *q;
-    int i;
-    q = start;
-    for (i = 1;i>1&&i < pos - 1;i++)
-    {
-        q = q->next;
-        if (q == NULL)
-        {
-            cout<<"There are less than ";
-            cout<<pos<<" elements."<<endl;
-            return;
-        }
-    }
-   
-    tmp = new(struct node);
-    tmp->info = value;
-    if (q->next == NULL)
-    {
-        q->next = tmp;
-        tmp->next = NULL;
-        tmp->prev = q;      
-    }
-    else
-    {
-        tmp->next = q->next;
-        tmp->next->prev = tmp;
-        q->next = tmp;
-        tmp->prev = q;
-    }
-    cout<<"Element Inserted"<<endl;
-}
- void double_llist::delete_element(int value)
+void double_llist::delete_element(int value)
 {
     struct node *tmp, *q;
         if (start->info == value)
